@@ -40,4 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/.google-credentials.json
+# Google Cloud credentials (be specific)
+google-credentials.json
+*-credentials.json
+service-account*.json
