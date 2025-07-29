@@ -6,7 +6,7 @@
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Live Demo: https://www.loom.com/share/e5d972fb268f4b18bc6f2274230be3cf?sid=50cbad38-23da-4c66-94b9-604de255ec80
 
 **🔗 Deployed App:** [https://pocket-vue-two.vercel.app/](https://pocket-vue-two.vercel.app/)  
 
@@ -55,7 +55,7 @@
 ---
 
 ## Architecture Overview
-<img width="3840" height="2560" alt="Flow-Diagram" src="https://github.com/user-attachments/assets/0f3c3acd-0094-4865-a9f5-27baa92be225" />
+<img width="807" height="571" alt="image" src="https://github.com/user-attachments/assets/5228e478-8d6e-4325-ba25-936f391d4d1b" />
 
 
 ```
