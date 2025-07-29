@@ -9,13 +9,7 @@
 ## 🚀 Live Demo
 
 **🔗 Deployed App:** [https://pocket-vue-two.vercel.app/](https://pocket-vue-two.vercel.app/)  
-**🧪 Test Login:**  
-- **Email:** `testuser@gmail.com`  
-- **Password:** `123456`  
 
-**🎥 Demo Video:** [Watch Demo Video](https://drive.google.com/file/d/19nGVZaV0aUOrgFiwiyYriUHxpfQJounc/view?usp=sharing)
-
----
 
 
 
