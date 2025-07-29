@@ -32,7 +32,7 @@ import {
   Pie, 
   Cell, 
   Tooltip, 
-  Legend,
+  Legend, 
   ResponsiveContainer,
   BarChart,
   Bar,
@@ -65,21 +65,25 @@ const parseDate = (raw: unknown): Date | null => {
 async function fetchYearlyIncome(userId: string, year: number): Promise<number> {
   let totalIncome = 0;
   
-  const incomeQuery = query(
-    collection(db, "incomes"),
-    where("userId", "==", userId)
-  );
-  
-  const snapshot = await getDocs(incomeQuery);
-  
-  snapshot.forEach((doc) => {
-    const { amount, date } = doc.data();
-    const parsedDate = parseDate(date);
+  try {
+    const incomeQuery = query(
+      collection(db, "incomes"),
+      where("userId", "==", userId)
+    );
     
-    if (parsedDate && parsedDate.getFullYear() === year && typeof amount === "number") {
-      totalIncome += amount;
-    }
-  });
+    const snapshot = await getDocs(incomeQuery);
+    
+    snapshot.forEach((doc) => {
+      const { amount, date } = doc.data();
+      const parsedDate = parseDate(date);
+      
+      if (parsedDate && parsedDate.getFullYear() === year && typeof amount === "number") {
+        totalIncome += amount;
+      }
+    });
+  } catch (error) {
+    console.error("Error fetching yearly income:", error);
+  }
   
   return totalIncome;
 }
@@ -88,21 +92,25 @@ async function fetchYearlyIncome(userId: string, year: number): Promise<number> 
 async function fetchYearlyExpense(userId: string, year: number): Promise<number> {
   let totalExpense = 0;
   
-  const expenseQuery = query(
-    collection(db, "expenses"),
-    where("userId", "==", userId)
-  );
-  
-  const snapshot = await getDocs(expenseQuery);
-  
-  snapshot.forEach((doc) => {
-    const { amount, date } = doc.data();
-    const parsedDate = parseDate(date);
+  try {
+    const expenseQuery = query(
+      collection(db, "expenses"),
+      where("userId", "==", userId)
+    );
     
-    if (parsedDate && parsedDate.getFullYear() === year && typeof amount === "number") {
-      totalExpense += amount;
-    }
-  });
+    const snapshot = await getDocs(expenseQuery);
+    
+    snapshot.forEach((doc) => {
+      const { amount, date } = doc.data();
+      const parsedDate = parseDate(date);
+      
+      if (parsedDate && parsedDate.getFullYear() === year && typeof amount === "number") {
+        totalExpense += amount;
+      }
+    });
+  } catch (error) {
+    console.error("Error fetching yearly expense:", error);
+  }
   
   return totalExpense;
 }
@@ -501,7 +509,7 @@ export default function FinancialSummaryPage() {
         {/* Header */}
         <div className="scroll-reveal">
           <h1 className="text-3xl md:text-4xl font-bold mb-2">
-             Financial Summary
+            Financial Summary
           </h1>
           <p className="text-base md:text-lg text-muted-foreground">
             Your comprehensive financial overview for <span className="font-semibold text-primary">{selectedYear}</span>. Track your yearly progress, analyze trends, and plan for the future.

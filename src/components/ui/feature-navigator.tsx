@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import {
   IndianRupee, TrendingDown, BarChart2, FileUp,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ArrowRight, ArrowUpRight, Home, 
   // Remove Sparkles import
 } from 'lucide-react';

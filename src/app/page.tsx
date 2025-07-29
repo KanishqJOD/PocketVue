@@ -12,12 +12,14 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 
 // These components are defined but never used, so we can remove them
 // or keep them if they might be used in the future
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Card = ({ children, className }: { children: React.ReactNode; className?: string }) => (
   <div className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)}>
     {children}
   </div>
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CardContent = ({ children, className }: { children: React.ReactNode; className?: string }) => (
   <div className={cn("p-6", className)}>
     {children}

@@ -99,7 +99,7 @@ export async function POST(req: NextRequest) {
             (t.classifiedAs === "Income" || t.classifiedAs === "Expense")
         );
       }
-    } catch (jsonErr) {
+    } catch (error) { // Changed from jsonErr to error
       console.warn("Failed to parse Gemini output:", cleanJson);
     }
 
