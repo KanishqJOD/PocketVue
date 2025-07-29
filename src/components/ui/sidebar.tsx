@@ -55,6 +55,7 @@ export default function Sidebar() {
     { href: "/expense", icon: <TrendingDown className="w-5 h-5" />, label: "Manage Expenses" },
     { href: "/upload-transactions", icon: <FileUp className="w-5 h-5" />, label: "Upload Transactions" },
     { href: "/statistics", icon: <BarChart2 className="w-5 h-5" />, label: "Statistics" },
+    { href: "/summary", icon: <BarChart2 className="w-5 h-5" />, label: "Financial Summary" },
     { href: "/account", icon: <User className="w-5 h-5" />, label: "Account" },
   ];
 
