@@ -70,7 +70,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <h3 className="text-xl font-semibold mb-2 flex items-center justify-between">
-                      <span>Manage IncomE</span>
+                      <span>Manage Income</span>
                       <ArrowRight className="h-5 w-5 text-primary transform transition-transform duration-300 group-hover:translate-x-1" />
                     </h3>
                     <p className="text-muted-foreground">View, add, and analyze your income sources</p>
