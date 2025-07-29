@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+// Remove cn import if not used
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import {
   IndianRupee, TrendingDown, BarChart2, FileUp,
-  ArrowRight, ArrowUpRight, Home, Sparkles
+  ArrowRight, ArrowUpRight, Home, 
+  // Remove Sparkles import
 } from 'lucide-react';
 
 type FeatureType = 'income' | 'expense' | 'statistics' | 'upload' | 'dashboard';

@@ -29,10 +29,9 @@ interface AccordionProps {
 
 export function Accordion({
   children,
-  type = "single",
   defaultValue,
   className,
-}: AccordionProps) {
+}: Omit<AccordionProps, 'type'>) {
   const [expanded, setExpanded] = React.useState<string | null>(
     defaultValue || null
   );

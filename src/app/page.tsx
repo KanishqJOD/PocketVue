@@ -1,16 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+// Card and CardContent are defined in the file but never used
+// You can either remove their definitions or keep them for future use
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, BarChart2, IndianRupee, TrendingDown, FileUp, Home, User } from "lucide-react";
-// Import your fixed accordion components
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
-// Simple Card components if you don't have shadcn/ui card
+// These components are defined but never used, so we can remove them
+// or keep them if they might be used in the future
 const Card = ({ children, className }: { children: React.ReactNode; className?: string }) => (
   <div className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)}>
     {children}
@@ -382,7 +383,7 @@ export default function HomePage() {
                     </AccordionTrigger>
                     <AccordionContent>
                       <p className="leading-relaxed">
-                        Track your income and expenses, see where your money goes with beautiful charts, and get insights to help you budget better. It's your complete financial overview in one place.
+                        Track your income and expenses, see where your money goes with beautiful charts, and get insights to help you budget better. It&apos;s your complete financial overview in one place.
                       </p>
                     </AccordionContent>
                   </AccordionItem>

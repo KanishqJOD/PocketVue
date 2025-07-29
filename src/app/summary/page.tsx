@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import TotalBalanceCard from "@/components/dashboard/TotalBalanceCard";
 import IncomeExpenseChart from "@/components/dashboard/IncomeExpenseChart";
@@ -51,9 +51,11 @@ const generateYears = (start: number, end: number) =>
   Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
 // Helper functions
-const parseDate = (raw: any): Date | null => {
+const parseDate = (raw: unknown): Date | null => {
   if (!raw) return null;
-  if (raw.seconds) return new Date(raw.seconds * 1000);
+  if (typeof raw === 'object' && raw !== null && 'seconds' in raw) {
+    return new Date((raw as { seconds: number }).seconds * 1000);
+  }
   if (typeof raw === "string") return new Date(raw);
   if (raw instanceof Date) return raw;
   return null;
@@ -341,10 +343,11 @@ function MonthlyComparisonChart({ year }: { year: number }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  const monthNames = [
+  // Move monthNames to useMemo to prevent recreation on each render
+  const monthNames = useMemo(() => [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-  ];
+  ], []);
 
   useEffect(() => {
     if (!user) return;
@@ -396,7 +399,7 @@ function MonthlyComparisonChart({ year }: { year: number }) {
     };
 
     fetchMonthlyData();
-  }, [user, year]);
+  }, [user, year, monthNames]);
 
   return (
     <Card className="bg-[#161b33] text-white">

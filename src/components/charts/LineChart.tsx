@@ -16,7 +16,7 @@ import { Card, CardContent } from "@/components/ui/card";
 interface LineChartProps {
   title: string;
   subtitle?: string;
-  data: any[];
+  data: Record<string, string | number>[];
   dataKeys: {
     key: string;
     color: string;
@@ -108,7 +108,7 @@ export default function LineChart({
                   animationDuration={200}
                 />
                 
-                {dataKeys.map(({ key, color, name, areaColor }) => (
+                {dataKeys.map(({ key, color, name }) => (
                   <>
                     <Area 
                       key={`area-${key}`}

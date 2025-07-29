@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  LayoutDashboard,
+  // Remove LayoutDashboard import
   BarChart2,
   IndianRupee,
   TrendingDown,
   User,
-  Settings,
+  // Remove Settings import
   Menu,
   X,
   FileUp,

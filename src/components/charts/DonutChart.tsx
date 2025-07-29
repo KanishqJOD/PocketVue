@@ -43,7 +43,7 @@ export default function DonutChart({
 }: DonutChartProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const onPieEnter = (_: any, index: number) => {
+  const onPieEnter = (_: React.MouseEvent<SVGElement>, index: number) => {
     setActiveIndex(index);
   };
 

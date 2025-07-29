@@ -16,7 +16,7 @@ import { Card, CardContent } from "@/components/ui/card";
 interface BarChartProps {
   title: string;
   subtitle?: string;
-  data: any[];
+  data: Record<string, string | number>[];
   dataKeys: {
     key: string;
     color: string;
@@ -111,7 +111,7 @@ export default function BarChart({
                   iconType="circle"
                   iconSize={8}
                 />
-                {dataKeys.map(({ key, color, name }) => (
+                {dataKeys.map(({ key, name }) => (
                   <Bar
                     key={key}
                     dataKey={key}
