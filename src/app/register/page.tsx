@@ -7,7 +7,8 @@ import { auth } from "@/lib/firebase";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { EyeIcon, EyeOffIcon, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -50,9 +51,16 @@ export default function RegisterPage() {
     }
   };
 
-  // Update the return statement (similar to login page)
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#0f172a] to-[#1e293b] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#0f172a] to-[#1e293b] px-4 relative">
+      {/* Back to Home Button */}
+      <Link href="/" className="absolute top-4 left-4 z-10">
+        <Button variant="ghost" className="flex items-center gap-2 text-white hover:bg-white/10">
+          <ArrowLeft size={18} />
+          Back to Home
+        </Button>
+      </Link>
+      
       <form
         onSubmit={handleRegister}
         className="w-full max-w-md space-y-6 rounded-xl border border-white/10 p-6 shadow-lg bg-gradient-to-br from-[#111827] to-[#1a1f2e] text-white"
@@ -60,18 +68,17 @@ export default function RegisterPage() {
         <h1 className="text-2xl font-bold text-center text-white">Create an Account</h1>
   
         {/* Name Field */}
-        {/* Name Field */}
-<div className="space-y-2">
-  <label className="text-sm text-gray-300">Display Name</label>
-  <Input
-    type="text"
-    placeholder="Display Name"
-    value={name}  // Changed from displayName to name
-    onChange={(e) => setName(e.target.value)} 
-    disabled={loading}
-    className="bg-[#1f2547] text-white border-white/10"
-  />
-</div>
+        <div className="space-y-2">
+          <label className="text-sm text-gray-300">Display Name</label>
+          <Input
+            type="text"
+            placeholder="Display Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)} 
+            disabled={loading}
+            className="bg-[#1f2547] text-white border-white/10"
+          />
+        </div>
   
         {/* Email Field */}
         <div className="space-y-2">

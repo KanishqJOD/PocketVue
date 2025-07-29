@@ -7,7 +7,8 @@ import { auth } from "@/lib/firebase";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { EyeIcon, EyeOffIcon, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -43,9 +44,16 @@ export default function LoginPage() {
     }
   };
 
-  // Update the return statement (around line 40)
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#0f172a] to-[#1e293b] px-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#0f172a] to-[#1e293b] px-4 relative">
+      {/* Back to Home Button */}
+      <Link href="/" className="absolute top-4 left-4 z-10">
+        <Button variant="ghost" className="flex items-center gap-2 text-white hover:bg-white/10">
+          <ArrowLeft size={18} />
+          Back to Home
+        </Button>
+      </Link>
+      
       <form
         onSubmit={handleLogin}
         className="w-full max-w-md space-y-6 rounded-xl border border-white/10 p-6 shadow-lg bg-gradient-to-br from-[#111827] to-[#1a1f2e] text-white"

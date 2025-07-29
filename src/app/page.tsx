@@ -7,6 +7,21 @@ import { useAuth } from "@/context/AuthContext";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, BarChart2, IndianRupee, TrendingDown, FileUp, Home, User } from "lucide-react";
+// Import your fixed accordion components
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+
+// Simple Card components if you don't have shadcn/ui card
+const Card = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <div className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)}>
+    {children}
+  </div>
+);
+
+const CardContent = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <div className={cn("p-6", className)}>
+    {children}
+  </div>
+);
 
 export default function HomePage() {
   const { user } = useAuth();
@@ -338,6 +353,78 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="text-center py-6 text-sm text-muted-foreground relative z-10 border-t border-border">
+        {/* FAQ Section */}
+        <div className="max-w-4xl mx-auto mb-12 scroll-reveal">
+          <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-white bg-clip-text text-transparent">
+            Frequently Asked Questions
+          </h2>
+          <div className="relative">
+            {/* Background glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent rounded-2xl blur-xl opacity-30 -z-10"></div>
+            
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-lg border border-gray-800/50 rounded-2xl overflow-hidden backdrop-blur-sm">
+              <div className="p-6">
+                <Accordion>
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger>
+                      <span className="text-lg font-medium">Do I need to create an account?</span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <p className="leading-relaxed">
+                        Yes, creating an account keeps your financial data secure and synced across all your devices. It only takes a minute to sign up.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                  
+                  <AccordionItem value="item-2">
+                    <AccordionTrigger>
+                      <span className="text-lg font-medium">What can I do with PocketVue?</span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <p className="leading-relaxed">
+                        Track your income and expenses, see where your money goes with beautiful charts, and get insights to help you budget better. It's your complete financial overview in one place.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                  
+                  <AccordionItem value="item-3">
+                    <AccordionTrigger>
+                      <span className="text-lg font-medium">Can I upload receipts to track expenses?</span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <p className="leading-relaxed">
+                        Yes! Simply upload a photo of your receipt or PDF, and PocketVue automatically extracts the amount, date, and category. No more manual typing.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                  
+                  <AccordionItem value="item-4">
+                    <AccordionTrigger>
+                      <span className="text-lg font-medium">Is my data safe?</span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <p className="leading-relaxed">
+                        Absolutely. Your financial information is encrypted and stored securely. We never share your data with third parties.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                  
+                  <AccordionItem value="item-5">
+                    <AccordionTrigger>
+                      <span className="text-lg font-medium">Can I see my spending patterns?</span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <p className="leading-relaxed">
+                        Yes! View colorful charts showing your spending by category and time period. Perfect for understanding your habits and planning your budget.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         Copyright © 2025 PocketVue
       </footer>
     </div>

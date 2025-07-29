@@ -194,3 +194,27 @@
   color: white;
   box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
 }
+
+/* Add these at the end of the file */
+
+/* FAQ Accordion animations */
+@keyframes accordionSlideDown {
+  from { max-height: 0; opacity: 0; }
+  to { max-height: var(--accordion-height); opacity: 1; }
+}
+
+@keyframes accordionSlideUp {
+  from { max-height: var(--accordion-height); opacity: 1; }
+  to { max-height: 0; opacity: 0; }
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 5px rgba(33, 150, 243, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(33, 150, 243, 0.3); }
+  100% { box-shadow: 0 0 5px rgba(33, 150, 243, 0.1); }
+}
+
+/* Apply glow animation to active accordion items */
+.accordion-item-active {
+  animation: glowPulse 3s infinite;
+}
