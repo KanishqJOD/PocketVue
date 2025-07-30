@@ -21,8 +21,6 @@
 4. [Environment Configuration](#environment-configuration)
 5. [Local Development Setup](#local-development-setup)
 6. [Firebase Configuration Guide](#firebase-configuration-guide)
-7. [License](#license)
-
 ---
 
 ## Key Features
@@ -146,12 +144,6 @@ http://localhost:3000
 6. Add these values to your `.env.local` file as `NEXT_PUBLIC_FIREBASE_*` variables.
 
 ---
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-> **Note:** If a LICENSE file is not present in the repository, it is recommended to add one to clarify the terms under which the software can be used, modified, and distributed.
 
 ---
 
